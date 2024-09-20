@@ -7,12 +7,12 @@
 
 import Foundation
 
-class NetworkManager: ObservableObject { // Сетевой менеджер для работы с данными, которые можно наблюдать в SwiftUI.
+class NetworkManager: ObservableObject {
     @Published var artists: [Artist] = []
 
-    func fetchArtists() { // Функция для загрузки списка художников.
+    func fetchArtists() {
         guard let url = URL(string: "https://cdn.accelonline.io/OUR6G_IgJkCvBg5qurB2Ag/files/YPHn3cnKEk2NutI6fHK04Q.json") else {
-            print("Некорректный URL") // Сообщаем об ошибке, если URL некорректен.
+            print("Некорректный URL")
             return
         }
 

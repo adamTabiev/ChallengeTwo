@@ -8,25 +8,30 @@
 import SwiftUI
 
 struct FullScreenImageView: View {
-    let work: Work // Получаем информацию о произведении.
-    @Environment(\.presentationMode) var presentationMode // Системное окружение для закрытия экрана.
-
+    let work: Work
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
-        ZStack(alignment: .topTrailing) { // Наложение кнопки закрытия в правом верхнем углу.
-            Color.black.edgesIgnoringSafeArea(.all) // Черный фон для полноэкранного режима.
-            Image(work.image) // Изображение произведения.
-                .resizable() // Изображение изменяемого размера.
-                .scaledToFit() // Масштабируем изображение.
-                .background(Color.black) // Фон изображения — черный.
-                .edgesIgnoringSafeArea(.all) // Применяем изображение на весь экран.
-
+        ZStack(alignment: .topTrailing) {
+            Color.black.edgesIgnoringSafeArea(.all)
+            VStack {
+                Spacer()
+                
+                Image(work.image)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                
+                Spacer() 
+            }
+            
             Button(action: {
-                presentationMode.wrappedValue.dismiss() // Закрываем полноэкранное представление.
+                presentationMode.wrappedValue.dismiss()
             }) {
-                Image(systemName: "xmark.circle.fill") // Иконка закрытия экрана.
-                    .font(.largeTitle) // Размер иконки — большой.
-                    .padding() // Добавляем отступы.
-                    .foregroundColor(.white) // Цвет иконки — белый.
+                Image(systemName: "xmark.circle.fill")
+                    .font(.largeTitle)
+                    .padding()
+                    .foregroundColor(.white)
             }
         }
     }
@@ -34,6 +39,6 @@ struct FullScreenImageView: View {
 
 
 
-//#Preview {
-//    FullScreenImageView()
-//}
+#Preview {
+    FullScreenImageView(work: Work(title: "Звёздная ночь", image: "VanGogh1", info: "Одна из самых известных картин Ван Гога."))
+}
