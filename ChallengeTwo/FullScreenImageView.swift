@@ -13,15 +13,16 @@ struct FullScreenImageView: View {
     
     var body: some View {
         ZStack(alignment: .topTrailing) {
-            Color.black.edgesIgnoringSafeArea(.all)
+            
+            Color.black
+                .edgesIgnoringSafeArea(.all)
+            
             VStack {
                 Spacer()
-                
                 Image(work.image)
                     .resizable()
                     .scaledToFit()
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
-                
                 Spacer() 
             }
             
