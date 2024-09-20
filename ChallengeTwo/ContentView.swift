@@ -8,16 +8,50 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+    @ObservedObject var networkManager = NetworkManager()
+    @State private var searchText = ""
+
+    var filteredArtists: [Artist] {
+        if searchText.isEmpty {
+            return networkManager.artists
+        } else {
+            return networkManager.artists.filter { artist in
+                artist.name.lowercased().contains(searchText.lowercased()) ||
+                artist.works.contains { work in
+                    work.title.lowercased().contains(searchText.lowercased())
+                }
+            }
         }
-        .padding()
+    }
+
+    var body: some View {
+        NavigationView {
+            List(filteredArtists) { artist in
+                NavigationLink(destination: ArtistDetailView(artist: artist)) {
+                    HStack {
+                        Image(artist.image)
+                            .resizable()
+                            .frame(width: 50, height: 50)
+                            .clipShape(Circle())
+                        VStack(alignment: .leading) {
+                            Text(artist.name)
+                                .font(.headline)
+                            Text(artist.bio)
+                                .font(.subheadline)
+                                .lineLimit(2)
+                        }
+                    }
+                }
+            }
+            .navigationTitle("Художники")
+            .onAppear {
+                networkManager.fetchArtists()
+            }
+            .searchable(text: $searchText, prompt: "Поиск по автору или картине")
+        }
     }
 }
+
 
 #Preview {
     ContentView()

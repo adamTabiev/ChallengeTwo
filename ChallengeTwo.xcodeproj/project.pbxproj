@@ -9,16 +9,26 @@
 /* Begin PBXBuildFile section */
 		F19E39662C9DC11E00C09E72 /* ChallengeTwoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19E39652C9DC11E00C09E72 /* ChallengeTwoApp.swift */; };
 		F19E39682C9DC11E00C09E72 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19E39672C9DC11E00C09E72 /* ContentView.swift */; };
-		F19E396A2C9DC12100C09E72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F19E39692C9DC12100C09E72 /* Assets.xcassets */; };
 		F19E396D2C9DC12100C09E72 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F19E396C2C9DC12100C09E72 /* Preview Assets.xcassets */; };
+		F19E39762C9DC67700C09E72 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19E39752C9DC67700C09E72 /* Artist.swift */; };
+		F19E39782C9DC7AA00C09E72 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19E39772C9DC7AA00C09E72 /* NetworkManager.swift */; };
+		F19E397A2C9DC7F100C09E72 /* ArtistDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19E39792C9DC7F100C09E72 /* ArtistDetailView.swift */; };
+		F19E397C2C9DC81F00C09E72 /* WorkDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19E397B2C9DC81F00C09E72 /* WorkDetailView.swift */; };
+		F19E397E2C9DC83B00C09E72 /* FullScreenImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19E397D2C9DC83B00C09E72 /* FullScreenImageView.swift */; };
+		F19E39802C9DD5C200C09E72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F19E397F2C9DD5C200C09E72 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F19E39622C9DC11E00C09E72 /* ChallengeTwo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChallengeTwo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F19E39652C9DC11E00C09E72 /* ChallengeTwoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeTwoApp.swift; sourceTree = "<group>"; };
 		F19E39672C9DC11E00C09E72 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		F19E39692C9DC12100C09E72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F19E396C2C9DC12100C09E72 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F19E39752C9DC67700C09E72 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
+		F19E39772C9DC7AA00C09E72 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		F19E39792C9DC7F100C09E72 /* ArtistDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailView.swift; sourceTree = "<group>"; };
+		F19E397B2C9DC81F00C09E72 /* WorkDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkDetailView.swift; sourceTree = "<group>"; };
+		F19E397D2C9DC83B00C09E72 /* FullScreenImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenImageView.swift; sourceTree = "<group>"; };
+		F19E397F2C9DD5C200C09E72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +63,12 @@
 			children = (
 				F19E39652C9DC11E00C09E72 /* ChallengeTwoApp.swift */,
 				F19E39672C9DC11E00C09E72 /* ContentView.swift */,
-				F19E39692C9DC12100C09E72 /* Assets.xcassets */,
+				F19E39792C9DC7F100C09E72 /* ArtistDetailView.swift */,
+				F19E397B2C9DC81F00C09E72 /* WorkDetailView.swift */,
+				F19E397D2C9DC83B00C09E72 /* FullScreenImageView.swift */,
+				F19E39752C9DC67700C09E72 /* Artist.swift */,
+				F19E39772C9DC7AA00C09E72 /* NetworkManager.swift */,
+				F19E397F2C9DD5C200C09E72 /* Assets.xcassets */,
 				F19E396B2C9DC12100C09E72 /* Preview Content */,
 			);
 			path = ChallengeTwo;
@@ -126,7 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F19E396D2C9DC12100C09E72 /* Preview Assets.xcassets in Resources */,
-				F19E396A2C9DC12100C09E72 /* Assets.xcassets in Resources */,
+				F19E39802C9DD5C200C09E72 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,7 +152,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F19E397E2C9DC83B00C09E72 /* FullScreenImageView.swift in Sources */,
+				F19E39782C9DC7AA00C09E72 /* NetworkManager.swift in Sources */,
+				F19E397A2C9DC7F100C09E72 /* ArtistDetailView.swift in Sources */,
+				F19E39762C9DC67700C09E72 /* Artist.swift in Sources */,
 				F19E39682C9DC11E00C09E72 /* ContentView.swift in Sources */,
+				F19E397C2C9DC81F00C09E72 /* WorkDetailView.swift in Sources */,
 				F19E39662C9DC11E00C09E72 /* ChallengeTwoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
