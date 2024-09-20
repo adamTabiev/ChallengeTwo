@@ -8,42 +8,43 @@
 import SwiftUI
 
 struct WorkDetailView: View {
-    let work: Work
-    @State private var isFullScreen = false
+    let work: Work // Получаем информацию о произведении, выбранном на предыдущем экране.
+    @State private var isFullScreen = false // Состояние для управления полноэкранным режимом.
 
     var body: some View {
-        VStack {
-            Text(work.title)
-                .font(.title)
-                .padding()
+        VStack { // Вертикальное расположение контента.
+            Text(work.title) // Отображаем заголовок произведения.
+                .font(.title) // Стиль заголовка.
+                .padding() // Добавляем отступы.
 
-            Spacer()
+            Spacer() // Разделяем верхний и нижний контент.
 
-            ZStack(alignment: .bottomTrailing) {
-                Image(work.image)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .onTapGesture {
+            ZStack(alignment: .bottomTrailing) { // Наложение контента в правом нижнем углу.
+                Image(work.image) // Изображение произведения.
+                    .resizable() // Изображение изменяемого размера.
+                    .aspectRatio(contentMode: .fit) // Подгоняем по размеру экрана.
+                    .onTapGesture { // Обрабатываем нажатие на изображение.
                         withAnimation {
-                            isFullScreen.toggle()
+                            isFullScreen.toggle() // Включаем полноэкранный режим.
                         }
                     }
-                    .fullScreenCover(isPresented: $isFullScreen) {
-                        FullScreenImageView(work: work)
+                    .fullScreenCover(isPresented: $isFullScreen) { // Полноэкранное представление изображения.
+                        FullScreenImageView(work: work) // Переход к полноэкранному виду изображения.
                     }
 
-                Image(systemName: "arrow.up.left.and.arrow.down.right")
-                    .padding()
+                Image(systemName: "arrow.up.left.and.arrow.down.right") // Иконка для полноэкранного режима.
+                    .padding() // Добавляем отступы.
             }
 
-            Spacer()
+            Spacer() // Разделяем нижний и верхний контент.
 
-            Text(work.info)
-                .padding()
+            Text(work.info) // Отображаем информацию о произведении.
+                .padding() // Добавляем отступы.
         }
-        .navigationTitle(work.title)
+        .navigationTitle(work.title) // Заголовок экрана с названием произведения.
     }
 }
+
 
 
 //#Preview {

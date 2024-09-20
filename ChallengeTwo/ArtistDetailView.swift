@@ -8,28 +8,29 @@
 import SwiftUI
 
 struct ArtistDetailView: View {
-    let artist: Artist
+    let artist: Artist // Получаем информацию о художнике, выбранном на предыдущем экране.
 
     var body: some View {
-        List(artist.works) { work in
-            NavigationLink(destination: WorkDetailView(work: work)) {
-                HStack {
-                    Image(work.image)
-                        .resizable()
-                        .frame(width: 50, height: 50)
-                    VStack(alignment: .leading) {
-                        Text(work.title)
-                            .font(.headline)
-                        Text(work.info)
-                            .font(.subheadline)
-                            .lineLimit(1)
+        List(artist.works) { work in // Отображаем список произведений художника.
+            NavigationLink(destination: WorkDetailView(work: work)) { // Переход к экрану с деталями произведения.
+                HStack { // Горизонтальное выравнивание изображения и текста.
+                    Image(work.image) // Изображение произведения.
+                        .resizable() // Изображение изменяемого размера.
+                        .frame(width: 50, height: 50) // Устанавливаем размеры изображения.
+                    VStack(alignment: .leading) { // Вертикальное выравнивание текста.
+                        Text(work.title) // Отображаем название произведения.
+                            .font(.headline) // Стиль заголовка.
+                        Text(work.info) // Краткая информация о произведении.
+                            .font(.subheadline) // Стиль подзаголовка.
+                            .lineLimit(1) // Ограничиваем до одной строки.
                     }
                 }
             }
         }
-        .navigationTitle(artist.name)
+        .navigationTitle(artist.name) // Заголовок экрана с именем художника.
     }
 }
+
 
 
 //#Preview {

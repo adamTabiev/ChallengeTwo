@@ -7,33 +7,33 @@
 
 import Foundation
 
-class NetworkManager: ObservableObject {
+class NetworkManager: ObservableObject { // Сетевой менеджер для работы с данными, которые можно наблюдать в SwiftUI.
     @Published var artists: [Artist] = []
 
-    func fetchArtists() {
+    func fetchArtists() { // Функция для загрузки списка художников.
         guard let url = URL(string: "https://cdn.accelonline.io/OUR6G_IgJkCvBg5qurB2Ag/files/YPHn3cnKEk2NutI6fHK04Q.json") else {
-            print("Некорректный URL")
+            print("Некорректный URL") // Сообщаем об ошибке, если URL некорректен.
             return
         }
 
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            if let data = data {
-                let decoder = JSONDecoder()
+        URLSession.shared.dataTask(with: url) { data, response, error in // Отправляем сетевой запрос.
+            if let data = data { // Проверяем, есть ли данные.
+                let decoder = JSONDecoder() // Создаём декодер JSON.
                 do {
-                    // Декодируем корневой объект, который содержит ключ "artists"
-                    let jsonResponse = try decoder.decode([String: [Artist]].self, from: data)
-                    if let artists = jsonResponse["artists"] {
-                        DispatchQueue.main.async {
-                            self.artists = artists
+                    let jsonResponse = try decoder.decode([String: [Artist]].self, from: data) // Декодируем JSON ответ.
+                    if let artists = jsonResponse["artists"] { // Извлекаем список художников из JSON.
+                        DispatchQueue.main.async { // Выполняем обновление в основном потоке.
+                            self.artists = artists // Обновляем список художников.
                         }
                     }
                 } catch {
-                    print("Ошибка декодирования JSON: \(error)")
+                    print("Ошибка декодирования JSON: \(error)") // Сообщаем об ошибке декодирования.
                 }
-            } else if let error = error {
-                print("Ошибка загрузки данных: \(error)")
+            } else if let error = error { // Проверяем наличие ошибок запроса.
+                print("Ошибка загрузки данных: \(error)") // Сообщаем об ошибке загрузки данных.
             }
-        }.resume()
+        }.resume() // Запускаем задачу загрузки данных.
     }
 }
+
 
