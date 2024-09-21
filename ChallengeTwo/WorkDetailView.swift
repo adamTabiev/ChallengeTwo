@@ -15,6 +15,7 @@ struct WorkDetailView: View {
         ScrollView {
             Text(work.title)
                 .font(.title)
+                .fontWeight(.bold)
                 .padding()
             
             Spacer()
@@ -37,7 +38,7 @@ struct WorkDetailView: View {
             Text(work.info)
                 .padding()
         }
-        .navigationTitle(work.title)
+        //.navigationTitle(work.title)
     }
 }
 
